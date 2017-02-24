@@ -1,0 +1,13 @@
+<!--
+  ~ Created by Mohamed Bushra on 20/02/17 14:40
+  ~ Copyright (c) 2017. All rights reserved.
+  ~
+  ~ Last Modified 19/02/17 12:07.
+  -->
+
+<resources>
+    <!-- Example customization of dimensions originally defined in res/values/dimens.xml
+         (such as screen margins) for screens with more than 820dp of available width. This
+         would include 7" and 10" devices in landscape (~960dp and ~1280dp respectively). -->
+    <dimen name="activity_horizontal_margin">64dp</dimen>
+</resources>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Created by Mohamed Bushra on 20/02/17 16:44
+  ~ Copyright (c) 2017. All rights reserved.
+  ~
+  ~ Last Modified 20/02/17 16:21.
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="16dp"
+    android:background="#ffffff"
+    android:weightSum="1">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:src="@mipmap/tunellogo1"
+        android:contentDescription=""
+        tools:ignore="ContentDescription"
+        android:id="@+id/imageView"
+        android:layout_weight="0.92" />
+
+
+</LinearLayout>

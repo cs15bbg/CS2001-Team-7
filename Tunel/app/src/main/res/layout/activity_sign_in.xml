@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Created by Mohamed Bushra on 20/02/17 16:44
+  ~ Copyright (c) 2017. All rights reserved.
+  ~
+  ~ Last Modified 20/02/17 16:41.
+  -->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_sign_in"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="#FFFFFF"
+    tools:context="uk.ac.brunel.tunel.activity.SignInActivity">
+
+
+    <ImageView
+        android:layout_width="400dp"
+        android:layout_height="300dp"
+        app:srcCompat="@mipmap/tunellogo1"
+        android:id="@+id/tunellogo"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:contentDescription="@string/tunellogo"/>
+
+    <Button
+        android:background="#2471A3"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:textColor="#fff"
+        android:text="Sign up"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:id="@+id/signup_button"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:background="#F9F9F9"
+        android:layout_width="800dp"
+        android:layout_height="45dp"
+        android:inputType="textEmailAddress"
+        android:hint="@string/email"
+        android:ems="10"
+        android:id="@+id/log_email"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:background="#F9F9F9"
+        android:layout_width="800dp"
+        android:layout_height="45dp"
+        android:inputType="textPassword"
+        android:hint="@string/password"
+        android:ems="10"
+        android:minLines="6"
+        android:id="@+id/log_pass"
+        android:layout_below="@+id/log_email"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="18dp" />
+
+    <Button
+        android:background="@null"
+        android:text="@string/forgot_password"
+        android:textSize="16sp"
+        android:textStyle="italic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/forgotpassword"
+        android:layout_below="@+id/log_pass"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="23dp" />
+
+
+    <Button
+        android:background="#2471A3"
+        android:text="@string/log_in"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#fff"
+        android:layout_width="800dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/log_button"
+        android:layout_below="@+id/forgotpassword"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="24dp" />
+
+
+</RelativeLayout>
