@@ -1,7 +1,7 @@
 # Tunél App
 
 Year 2 group project, Team 7. 
-Upcoming Brunel CS tutoring app.  
+Upcoming Brunel CS Discussion app.  
 
 ## Contributing
 
