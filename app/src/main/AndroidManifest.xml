@@ -44,7 +44,8 @@
         <activity
             android:name=".activity.UserProfileActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".activity.ResetPassActivity"></activity>
+        <activity android:name=".activity.ResetPassActivity"
+                  android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
     </application>
 
 </manifest>

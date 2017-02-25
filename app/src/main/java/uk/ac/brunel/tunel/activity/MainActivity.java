@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import uk.ac.brunel.tunel.R;
 
@@ -25,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private Button ButtonSignIn;
     private Button ButtonSignUp;
     private FirebaseAuth mAuth;
+    private FirebaseUser userRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,15 +34,23 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mAuth = FirebaseAuth.getInstance();
+        userRef = FirebaseAuth.getInstance().getCurrentUser();
 
-        // Check if user is already logged in
+        // Check if user is already logged in & verified
         if(mAuth.getCurrentUser() != null){
             Toast.makeText(MainActivity.this,"Welcome back "+ mAuth.getCurrentUser().getEmail(),
                     Toast.LENGTH_LONG).show();
             //If user is logged in, close this activity
             // and direct user to the forum
             finish();
-            startActivity(new Intent(getApplicationContext(), UserProfileActivity.class));
+            if(userRef.isEmailVerified()) {
+                startActivity(new Intent(getApplicationContext(), UserProfileActivity.class));
+            }
+
+            else
+            {
+                startActivity(new Intent(getApplicationContext(), SignInActivity.class));
+            }
         }
 
         //Assigning the 'Sign in' button to a click listener
