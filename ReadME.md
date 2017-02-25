@@ -17,7 +17,17 @@ Upcoming Brunel CS Discussion Forum App.
 
 ## Credits
 
-(Coming soon)
+Binod - User calendar + Menu 
+
+Faleh - Forum
+
+Hannah - GTA/Pall calendar + Menu
+
+Hamayun - Forum
+
+Miah - Forum
+
+Mohamed - Login, register & user profile
 
 ## License
 
