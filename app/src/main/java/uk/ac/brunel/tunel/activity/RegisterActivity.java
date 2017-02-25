@@ -74,7 +74,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         }
 
         if(TextUtils.isEmpty(password) || password.length()<6){
-            Toast.makeText(this,"Please enter a valid password of min 8 characters!",Toast.LENGTH_LONG).show();
+            Toast.makeText(this,"Please enter a valid password of min. 6 characters!",Toast
+                    .LENGTH_LONG).show();
             return;
         }
 
@@ -115,7 +116,10 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         for(int i=0; i<studentIDChar.length;i++) {
             if(!(studentIDChar[i] <= 9 && studentIDChar[i] >= 0))
             {
-
+                Toast.makeText(this, "Email entered is incorrect! your email begins with your " +
+                        "student ID",
+                        Toast.LENGTH_SHORT).show();
+                return;
             }
         }
 

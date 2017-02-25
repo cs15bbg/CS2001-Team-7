@@ -122,7 +122,10 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
         for(int i=0; i<studentIDChar.length;i++) {
             if(!(studentIDChar[i] <= 9 && studentIDChar[i] >= 0))
             {
-
+                Toast.makeText(this, "Email entered is incorrect! your email begins with your " +
+                                "student ID",
+                        Toast.LENGTH_SHORT).show();
+                return;
             }
         }
 
