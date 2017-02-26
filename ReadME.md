@@ -15,7 +15,7 @@ Upcoming Brunel CS Discussion Forum App.
 
 (Coming soon)
 
-## Credits
+## Responsibilites (Branches)
 
 Binod - User calendar + Menu 
 
