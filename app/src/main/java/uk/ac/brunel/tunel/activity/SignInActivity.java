@@ -14,7 +14,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -62,18 +61,8 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
         pDialog.setCancelable(false);
 
         mAuth = FirebaseAuth.getInstance();
-        btnSignup.setOnClickListener(new View.OnClickListener()
-        {
-            public void onClick(View v)
-            {
-                /* Setting a new intent which takes the user from the current screen
-                to the next (Sign in --> Sign up screen)
-                 */
-                Intent RegisterIntent = new Intent(SignInActivity.this, RegisterActivity.class);
-                startActivity(RegisterIntent);
+        btnSignup.setOnClickListener(this);
 
-            }
-        });
 
     }
     private void userSignIn()
@@ -96,7 +85,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
         String segment[] = emailBrunel.split("@");
         String isEmailBrunel = segment[1];
         String isStudentID = segment[0];
-        char[] studentIDChar = new char[7];
+        String regex = "[0-9]+";
 
         //Validate that the user email ends with "@my.brunel.ac.uk"
         if(!isEmailBrunel.contains("my.brunel.ac.uk"))
@@ -105,29 +94,14 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
             return;
         }
 
-        //Validate the user email contains 7 digits before the "@"
-        if(!(isStudentID.length() == 7))
+        //Validate the user email contains 7 characters before the "@"
+        if(!(isStudentID.length() == 7 && isStudentID.contains(regex)))
         {
-            Toast.makeText(this, "Email entered is incorrect! your student id is 7 digits",
+            Toast.makeText(this, "Email entered is incorrect! your student ID is 7 digits",
                     Toast.LENGTH_SHORT).show();
             return;
         }
 
-        //Validate that the user has entered their student ID
-        //and it's only digits entered between 0-9
-        for(int i= 0;i<isStudentID.length();i++) {
-            studentIDChar[i] = isStudentID.charAt(i);
-        }
-
-        for(int i=0; i<studentIDChar.length;i++) {
-            if(!(studentIDChar[i] <= 9 && studentIDChar[i] >= 0))
-            {
-                Toast.makeText(this, "Email entered is incorrect! your email begins with your " +
-                                "student ID",
-                        Toast.LENGTH_SHORT).show();
-                return;
-            }
-        }
 
         pDialog.setMessage("Login in...");
         pDialog.show();
@@ -169,11 +143,21 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
             userSignIn();
         }
 
-        if ( v == btnResetPass)
+        else if ( v == btnResetPass)
         {
             Intent resetPassIntent = new Intent(SignInActivity.this, ResetPassActivity.class);
             startActivity(resetPassIntent);
         }
+
+        else if (v == btnSignup)
+        {
+            /* Setting a new intent which takes the user from the current screen
+                to the next (Sign in --> Sign up screen)
+                 */
+            Intent RegisterIntent = new Intent(SignInActivity.this, RegisterActivity.class);
+            startActivity(RegisterIntent);
+        }
+
 
     }
 

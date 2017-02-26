@@ -37,20 +37,17 @@ public class MainActivity extends AppCompatActivity {
         userRef = FirebaseAuth.getInstance().getCurrentUser();
 
         // Check if user is already logged in & verified
-        if(mAuth.getCurrentUser() != null){
+        if(mAuth.getCurrentUser() != null && userRef.isEmailVerified()){
             Toast.makeText(MainActivity.this,"Welcome back "+ mAuth.getCurrentUser().getEmail(),
                     Toast.LENGTH_LONG).show();
             //If user is logged in, close this activity
             // and direct user to the forum
             finish();
-            if(userRef.isEmailVerified()) {
                 startActivity(new Intent(getApplicationContext(), UserProfileActivity.class));
-            }
-
-            else
-            {
-                startActivity(new Intent(getApplicationContext(), SignInActivity.class));
-            }
+        }
+        else
+        {
+            startActivity(new Intent(getApplicationContext(), SignInActivity.class));
         }
 
         //Assigning the 'Sign in' button to a click listener
