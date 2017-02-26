@@ -46,12 +46,24 @@ public class UserProfileActivity extends AppCompatActivity implements View.OnCli
         setContentView(R.layout.activity_userprofile);
 
         useremail = (TextView) findViewById(R.id.view_user_email);
+        first_name = (EditText) findViewById(R.id.first_name);
+        last_name = (EditText) findViewById(R.id.last_name);
         course = (Spinner) findViewById(R.id.course_spinner);
         course_year = (Spinner) findViewById(R.id.courseyear_spinner);
         usertype = (Spinner) findViewById(R.id.gtapal_spinner);
+        studentID = (EditText) findViewById(R.id.student_ID);
+
+        btnSaveInfo = (Button) findViewById(R.id.save_info);
+        btnSaveInfo.setOnClickListener(this);
+
         btnLogout = (Button) findViewById(R.id.btnLogout);
-        authRef = FirebaseAuth.getInstance();
         btnLogout.setOnClickListener(this);
+
+        databaseReference = FirebaseDatabase.getInstance().getReference("users");
+        authRef = FirebaseAuth.getInstance();
+
+        userRef = authRef.getCurrentUser();
+        useremail.setText("Hello "+ userRef.getEmail());
 
         //Create an ArrayAdapter using the string array and a default spinner layout
         // Create an ArrayAdapter using the string array and a default spinner layout
@@ -70,30 +82,6 @@ public class UserProfileActivity extends AppCompatActivity implements View.OnCli
                 R.array.gta_pal, android.R.layout.simple_spinner_item);
         course_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         usertype.setAdapter(gtapal_adapter);
-
-        //Checking if the user is not logged in
-
-        if(authRef.getCurrentUser() == null){
-            //If user is logged in, close this activity
-            // and direct user to the sign in page
-            finish();
-            startActivity(new Intent(this, SignInActivity.class));
-        }
-
-        databaseReference = FirebaseDatabase.getInstance().getReference("users");
-
-        useremail = (TextView) findViewById(R.id.view_user_email);
-        first_name = (EditText) findViewById(R.id.first_name);
-        last_name = (EditText) findViewById(R.id.last_name);
-        course = (Spinner) findViewById(R.id.course_spinner);
-        course_year = (Spinner) findViewById(R.id.courseyear_spinner);
-        usertype = (Spinner) findViewById(R.id.gtapal_spinner);
-        studentID = (EditText) findViewById(R.id.student_ID);
-        btnSaveInfo = (Button) findViewById(R.id.save_info);
-        btnSaveInfo.setOnClickListener(this);
-
-        userRef = authRef.getCurrentUser();
-        useremail.setText("Hello "+ userRef.getEmail());
 
     }
 

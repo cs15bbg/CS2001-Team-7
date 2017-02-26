@@ -52,13 +52,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         btnBack.setOnClickListener(this);
         progressDialog = new ProgressDialog(this);
 
-        //Check if user is already logged in
-        if(mAuth.getCurrentUser() != null){
-            //Close current page and open forum activity
-            finish();
-            startActivity(new Intent(getApplicationContext(), UserProfileActivity.class));
-        }
-
     }
 
     private void registerUser() {
@@ -90,7 +83,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         String segment[] = emailBrunel.split("@");
         String isEmailBrunel = segment[1];
         String isStudentID = segment[0];
-        char[] studentIDChar = new char[7];
+        String regex = "[0-9]+";
 
         //Validate that the user email ends with "@my.brunel.ac.uk"
         if(!isEmailBrunel.contains("my.brunel.ac.uk"))
@@ -100,27 +93,11 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         }
 
         //Validate the user email contains 7 characters before the "@"
-        if(!(isStudentID.length() == 7))
+        if(!(isStudentID.length() == 7 && isStudentID.contains(regex)))
         {
-            Toast.makeText(this, "Email entered is incorrect! your student id is 7 digits",
+            Toast.makeText(this, "Email entered is incorrect! your student ID is 7 digits.",
                     Toast.LENGTH_SHORT).show();
             return;
-        }
-
-        //Validate that the user has entered their student ID
-        //and it's only digits entered between 0-9
-        for(int i= 0;i<isStudentID.length();i++) {
-            studentIDChar[i] = isStudentID.charAt(i);
-        }
-
-        for(int i=0; i<studentIDChar.length;i++) {
-            if(!(studentIDChar[i] <= 9 && studentIDChar[i] >= 0))
-            {
-                Toast.makeText(this, "Email entered is incorrect! your email begins with your " +
-                        "student ID",
-                        Toast.LENGTH_SHORT).show();
-                return;
-            }
         }
 
         progressDialog.setMessage("Registering Please Wait...");
