@@ -30,7 +30,7 @@
     <string-array name="course">
         <item>Select your course level</item>
         <item>Computer Science</item>
-        <item>Computer Science (Artificial Intelligence</item>
+        <item>Computer Science (Artificial Intelligence)</item>
         <item>Computer Science (Digital Media and Games)</item>
         <item>Computer Science (Network Computing)</item>
         <item>Computer Science (Software Engineering)</item>
@@ -44,11 +44,13 @@
         <item>Level 2</item>
         <item>Level 3</item>
         <item>Placement</item>
+        <item>Masters</item>
+        <item>PhD</item>
 
     </string-array>
 
     <string-array name="gta_pal">
-        <item>PAL Member</item>
+        <item>Select your status</item>
         <item>GTA</item>
         <item>PAL</item>
         <item>None</item>

@@ -93,7 +93,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         }
 
         //Validate the user email contains 7 characters before the "@"
-        if(!(isStudentID.length() == 7 && isStudentID.contains(regex)))
+        if(!(isStudentID.length() == 7) && !isStudentID.contains(regex))
         {
             Toast.makeText(this, "Email entered is incorrect! your student ID is 7 digits.",
                     Toast.LENGTH_SHORT).show();
